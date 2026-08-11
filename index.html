@@ -1,428 +1,58 @@
-<!doctype html>
-<html lang="id" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asesmen Sumatif Akhir Jenjang</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@700;800;900&amp;display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Profil</title>
 
-    .grid-bg {
-      background-image:
-        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
+    <!-- Menghubungkan HTML dengan CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    .glow-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.3;
-      pointer-events: none;
-    }
+    <header>
+        <h1>Website Profil Saya</h1>
+        <p>Belajar HTML dan CSS</p>
+    </header>
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes slideRight {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    .anim-fade-up { animation: fadeUp 0.7s ease-out forwards; }
-    .anim-scale-in { animation: scaleIn 0.5s ease-out forwards; }
-    .anim-slide-right { animation: slideRight 0.5s ease-out forwards; }
-    .anim-float { animation: float 4s ease-in-out infinite; }
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Tentang</a>
+        <a href="#">Kontak</a>
+    </nav>
 
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.35s; }
-    .delay-4 { animation-delay: 0.5s; }
-    .delay-5 { animation-delay: 0.65s; }
-    .delay-6 { animation-delay: 0.8s; }
-    .delay-7 { animation-delay: 0.95s; }
+    <main>
+        <section class="profil">
+            <h2>Halo, Saya Hani!</h2>
+            <p>
+                Saya sedang belajar membuat website menggunakan
+                HTML dan CSS.
+            </p>
 
-    .stat-card {
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: transform 0.3s, border-color 0.3s;
-    }
-    .stat-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.2);
-    }
+            <button>Hubungi Saya</button>
+        </section>
 
-    .info-row {
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      transition: background 0.2s;
-    }
-    .info-row:last-child { border-bottom: none; }
-    .info-row:hover { background: rgba(255,255,255,0.03); }
-
-    .cta-btn {
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(234, 179, 8, 0.3);
-    }
-    .cta-btn::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
-      transform: translateX(-100%);
-      transition: transform 0.5s;
-    }
-    .cta-btn:hover::after { transform: translateX(100%); }
-
-    .section-visible .reveal-item {
-      animation: fadeUp 0.6s ease-out forwards;
-    }
-  </style>
-  <style>body { box-sizing: border-box; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full">
-  <div id="app-wrapper" class="w-full h-full overflow-auto grid-bg" style="background-color: #0c1222;"><!-- Orbs -->
-   <div class="glow-orb" style="width:500px;height:500px;top:-100px;left:-150px;background:#1e40af;"></div>
-   <div class="glow-orb" style="width:400px;height:400px;bottom:10%;right:-100px;background:#7c3aed;"></div>
-   <div class="glow-orb" style="width:300px;height:300px;top:50%;left:40%;background:#0891b2;opacity:0.15;"></div><!-- Nav -->
-   <nav class="relative z-10 flex items-center justify-between px-6 md:px-12 py-5 opacity-0 anim-fade-up">
-    <div class="flex items-center gap-3">
-     <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #eab308, #f59e0b);"><i data-lucide="graduation-cap" style="width:20px;height:20px;color:#0c1222;"></i>
-     </div><span id="nav-school" class="text-sm font-semibold tracking-wide" style="color:#94a3b8;">SMK Guna Dharma Nusantara</span>
-    </div>
-    <div class="hidden md:flex items-center gap-8 text-sm font-medium" style="color:#64748b;"><a href="#jadwal" class="hover:text-white transition-colors">Jadwal</a> <a href="#mapel" class="hover:text-white transition-colors">Mata Pelajaran</a> <a href="#tata-tertib" class="hover:text-white transition-colors">Tata Tertib</a>
-    </div>
-   </nav><!-- Hero -->
-   <header class="relative z-10 text-center px-6 pt-12 pb-16 md:pt-20 md:pb-24 max-w-4xl mx-auto">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6 opacity-0 anim-scale-in delay-1" style="background:rgba(234,179,8,0.1);color:#eab308;border:1px solid rgba(234,179,8,0.2);"><i data-lucide="sparkles" style="width:14px;height:14px;"></i> <span id="badge-year">Tahun Ajaran 2025/2026</span>
-    </div>
-    <h1 id="hero-title" class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 opacity-0 anim-fade-up delay-2" style="font-family:'Playfair Display',serif;color:#f1f5f9;">Asesmen Sumatif<br>
-      Akhir Jenjang</h1>
-    <p id="hero-subtitle" class="text-base md:text-lg max-w-xl mx-auto mb-10 opacity-0 anim-fade-up delay-3" style="color:#64748b;line-height:1.7;">Persiapkan dirimu dengan baik. Tunjukkan hasil belajar terbaikmu sebagai capaian akhir jenjang pendidikan.</p>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 anim-fade-up delay-4"><button id="cta-main" class="cta-btn px-8 py-3.5 rounded-xl text-sm font-bold tracking-wide" style="background:linear-gradient(135deg,#eab308,#f59e0b);color:#0c1222;" onclick="document.getElementById('jadwal').scrollIntoView({behavior:'smooth'})"> Mulai Asesmen </button> <button class="px-8 py-3.5 rounded-xl text-sm font-semibold transition-colors" style="border:1px solid rgba(255,255,255,0.1);color:#94a3b8;" onmouseover="this.style.borderColor='rgba(255,255,255,0.3)';this.style.color='#f1f5f9'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#94a3b8'" onclick="document.getElementById('tata-tertib').scrollIntoView({behavior:'smooth'})"> Lihat Panduan </button>
-    </div>
-   </header><!-- Stats -->
-   <section class="relative z-10 max-w-5xl mx-auto px-6 pb-20">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-     <div class="stat-card rounded-2xl p-5 text-center opacity-0 anim-scale-in delay-3" style="background:rgba(255,255,255,0.04);">
-      <div class="w-10 h-10 rounded-lg mx-auto mb-3 flex items-center justify-center" style="background:rgba(56,189,248,0.12);">
-       <i data-lucide="calendar-days" style="width:18px;height:18px;color:#38bdf8;"></i>
-      </div>
-      <div class="text-2xl font-bold" style="color:#f1f5f9;" id="stat-days">
-       13
-      </div>
-      <div class="text-xs mt-1" style="color:#64748b;">
-       Hari Pelaksanaan
-      </div>
-     </div>
-     <div class="stat-card rounded-2xl p-5 text-center opacity-0 anim-scale-in delay-4" style="background:rgba(255,255,255,0.04);">
-      <div class="w-10 h-10 rounded-lg mx-auto mb-3 flex items-center justify-center" style="background:rgba(168,85,247,0.12);">
-       <i data-lucide="book-open" style="width:18px;height:18px;color:#a855f7;"></i>
-      </div>
-      <div class="text-2xl font-bold" style="color:#f1f5f9;">
-       6
-      </div>
-      <div class="text-xs mt-1" style="color:#64748b;">
-       Mata Pelajaran
-      </div>
-     </div>
-     <div class="stat-card rounded-2xl p-5 text-center opacity-0 anim-scale-in delay-5" style="background:rgba(255,255,255,0.04);">
-      <div class="w-10 h-10 rounded-lg mx-auto mb-3 flex items-center justify-center" style="background:rgba(234,179,8,0.12);">
-       <i data-lucide="clock" style="width:18px;height:18px;color:#eab308;"></i>
-      </div>
-      <div class="text-2xl font-bold" style="color:#f1f5f9;">
-       90
-      </div>
-      <div class="text-xs mt-1" style="color:#64748b;">
-       Menit / Sesi
-      </div>
-     </div>
-     <div class="stat-card rounded-2xl p-5 text-center opacity-0 anim-scale-in delay-6" style="background:rgba(255,255,255,0.04);">
-      <div class="w-10 h-10 rounded-lg mx-auto mb-3 flex items-center justify-center" style="background:rgba(52,211,153,0.12);">
-       <i data-lucide="users" style="width:18px;height:18px;color:#34d399;"></i>
-      </div>
-      <div class="text-2xl font-bold" style="color:#f1f5f9;">
-       183
-      </div>
-      <div class="text-xs mt-1" style="color:#64748b;">
-       Peserta Didik
-      </div>
-     </div>
-    </div>
-   </section><!-- Jadwal -->
-   <section id="jadwal" class="relative z-10 max-w-6xl mx-auto px-6 pb-20 observe-section">
-    <div class="flex items-center gap-3 mb-8">
-     <div class="w-1 h-8 rounded-full" style="background:linear-gradient(to bottom,#eab308,#f59e0b);"></div>
-     <h2 class="text-2xl md:text-3xl font-bold" style="color:#f1f5f9;font-family:'Playfair Display',serif;">Jadwal Asesmen</h2>
-    </div>
-    <div class="rounded-2xl overflow-x-auto" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);">
-     <table class="w-full text-sm" style="color:#cbd5e1;">
-      <thead>
-       <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
-        <th class="px-4 py-4 text-left font-semibold text-xs tracking-widest uppercase" style="color:#64748b;width:160px;">Hari / Tanggal</th>
-        <th class="px-4 py-4 text-left font-semibold text-xs tracking-widest uppercase" style="color:#64748b;">Mata Ujian</th>
-        <th class="px-4 py-4 text-center font-semibold text-xs tracking-widest uppercase" style="color:#eab308;border-left:1px solid rgba(255,255,255,0.06);width:100px;">Sesi 1</th>
-        <th class="px-4 py-4 text-center font-semibold text-xs tracking-widest uppercase" style="color:#38bdf8;width:100px;">Sesi 2</th>
-        <th class="px-4 py-4 text-center font-semibold text-xs tracking-widest uppercase" style="color:#a855f7;width:100px;">Sesi 3</th>
-       </tr>
-      </thead>
-      <tbody id="schedule-list"><!-- filled by JS -->
-      </tbody>
-     </table>
-    </div>
-   </section><!-- Mata Pelajaran -->
-   <section id="mapel" class="relative z-10 max-w-5xl mx-auto px-6 pb-20 observe-section">
-    <div class="flex items-center gap-3 mb-8">
-     <div class="w-1 h-8 rounded-full" style="background:linear-gradient(to bottom,#a855f7,#7c3aed);"></div>
-     <h2 class="text-2xl md:text-3xl font-bold" style="color:#f1f5f9;font-family:'Playfair Display',serif;">Mata Pelajaran</h2>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="mapel-grid"><!-- filled by JS -->
-    </div>
-   </section><!-- Tata Tertib -->
-   <section id="tata-tertib" class="relative z-10 max-w-5xl mx-auto px-6 pb-20 observe-section">
-    <div class="flex items-center gap-3 mb-8">
-     <div class="w-1 h-8 rounded-full" style="background:linear-gradient(to bottom,#38bdf8,#0891b2);"></div>
-     <h2 class="text-2xl md:text-3xl font-bold" style="color:#f1f5f9;font-family:'Playfair Display',serif;">Tata Tertib Peserta</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="rules-grid"><!-- filled by JS -->
-    </div>
-   </section><!-- Footer -->
-   <footer class="relative z-10 text-center px-6 py-10" style="border-top:1px solid rgba(255,255,255,0.05);">
-    <div class="flex items-center justify-center gap-2 mb-3">
-     <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#eab308,#f59e0b);"><i data-lucide="graduation-cap" style="width:16px;height:16px;color:#0c1222;"></i>
-     </div><span id="footer-school" class="text-sm font-semibold" style="color:#94a3b8;">SMK Guna Dharma Nusantara</span>
-    </div>
-    <p class="text-xs" style="color:#475569;">© 2026 — Semoga Sukses, Raih Prestasi Terbaikmu! 🎓</p>
-   </footer>
-  </div>
-  <script>
-    // Data
-    const schedule = [
-      { 
-        date: 'Senin, 13 April 2026', 
-        subjects: ['Simulasi ASAJ Teori'],
-        sessions: ['07.30-09.00', '09.30-11.00', '12.30-14.00']
-      },
-      { 
-        date: 'Selasa, 14 April 2026', 
-        subjects: ['Pendidikan Agama Islam dan Budi Pekerti', 'Pendidikan Pancasila'],
-        sessions: ['07.30-09.00', '09.30-11.00', '12.30-14.00']
-      },
-      { 
-        date: 'Rabu, 15 April 2026', 
-        subjects: ['Bahasa Indonesia', 'Produktif'],
-        sessions: ['07.30-09.00', '09.30-11.00', '12.30-14.00']
-      },
-      { 
-        date: 'Kamis, 16 April 2026', 
-        subjects: ['Matematika'],
-        sessions: ['07.30-09.00', '09.30-11.00', '12.30-14.00']
-      },
-      { 
-        date: 'Jumat, 17 April 2026', 
-        subjects: ['Bahasa Inggris'],
-        sessions: ['07.30-09.00', '09.30-11.00', '13.00-14.30']
-      },
-    ];
-
-    const subjects = [
-      { name: 'Simulasi ASAJ Teori', icon: 'book-open', color: '#eab308', link: 'https://forms.gle/Q9HbBPHYcAZg9wKR9' },
-      { name: 'Pendidikan Agama Islam dan Budi Pekerti', icon: 'heart', color: '#38bdf8', link: 'https://forms.gle/XTQkzs2CyA3o2QGi7' },
-      { name: 'Pendidikan Pancasila', icon: 'flag', color: '#a855f7', link: 'https://forms.gle/G5MGNvviTwLsqPE98' },
-      { name: 'Bahasa Indonesia', icon: 'languages', color: '#34d399', link: 'https://forms.gle/LP6Q6fEN9PV8rWix9' },
-      { name: 'Produktif', icon: 'briefcase', color: '#f97316', submenu: [
-        { name: 'TEIN', link: 'https://forms.gle/66XoEZfUYteiMU868' },
-        { name: 'TKJ', link: 'https://forms.gle/bAmKevrWrQzqLdX3A' },
-        { name: 'FARMASI', link: 'https://forms.gle/WX8pRykWt6QWNDbXA' }
-      ] },
-      { name: 'Matematika', icon: 'calculator', color: '#ec4899', link: 'https://forms.gle/FN47PTxuCFEZAZF57' },
-      { name: 'Bahasa Inggris', icon: 'globe', color: '#6366f1', link: 'https://forms.gle/EujCCAuEqjqNvGxL9' },
-    ];
-
-    const rules = [
-      { icon: 'clock', text: 'Hadir 30 menit sebelum asesmen dimulai' },
-      { icon: 'id-card', text: 'Membawa kartu peserta dan kartu identitas' },
-      { icon: 'shirt', text: 'Mengenakan seragam sekolah lengkap dan rapi' },
-      { icon: 'smartphone', text: 'Tidak membawa HP ke dalam ruang asesmen' },
-      { icon: 'pen-tool', text: 'Membawa alat tulis sendiri (pensil 2B, penghapus, pulpen)' },
-      { icon: 'alert-triangle', text: 'Dilarang mencontek atau bekerjasama dalam bentuk apapun' },
-    ];
-
-    // Render schedule
-    const scheduleList = document.getElementById('schedule-list');
-    schedule.forEach((s, i) => {
-      const subjectRows = s.subjects.map((subject, idx) => {
-        const sessionCells = idx === 0 
-          ? s.sessions.map(session => `<td class="px-4 py-3 text-center text-xs">${session}</td>`).join('')
-          : s.sessions.map(() => '<td class="px-4 py-3 text-center text-xs"></td>').join('');
-        
-        if (idx === 0) {
-          return `
-            <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
-              <td class="px-4 py-3 font-semibold" style="color:#f1f5f9;">${s.date}</td>
-              <td class="px-4 py-3 text-sm" style="color:#e2e8f0;">${subject}</td>
-              ${sessionCells}
-            </tr>`;
-        } else {
-          return `
-            <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
-              <td class="px-4 py-3"></td>
-              <td class="px-4 py-3 text-sm" style="color:#e2e8f0;">${subject}</td>
-              ${sessionCells}
-            </tr>`;
-        }
-      });
-      
-      scheduleList.innerHTML += subjectRows.join('');
-    });
-
-    // Render subjects
-    const mapelGrid = document.getElementById('mapel-grid');
-    subjects.forEach(s => {
-      let cardHTML = `
-        <div class="stat-card rounded-2xl p-5 flex flex-col gap-3" style="background:rgba(255,255,255,0.04);">
-          <div class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:${s.color}15;">
-              <i data-lucide="${s.icon}" style="width:20px;height:20px;color:${s.color};"></i>
+        <section class="kartu">
+            <div class="card">
+                <h3>HTML</h3>
+                <p>Digunakan untuk membuat struktur halaman website.</p>
             </div>
-            <span class="text-sm font-semibold" style="color:#e2e8f0;">${s.name}</span>
-          </div>`;
-      
-      if (s.submenu && s.submenu.length > 0) {
-        cardHTML += `
-          <div class="pl-14 space-y-1.5">
-            ${s.submenu.map(sub => `
-              <a href="${sub.link}" target="_blank" rel="noopener noreferrer" class="block text-xs px-2.5 py-1.5 rounded-lg text-center font-medium transition-all hover:brightness-110" style="background:${s.color}20;color:${s.color};cursor:pointer;text-decoration:none;">
-                ${sub.name}
-              </a>
-            `).join('')}
-          </div>`;
-      } else if (s.link) {
-        cardHTML += `
-          <a href="${s.link}" target="_blank" rel="noopener noreferrer" class="mt-2 px-3 py-2 rounded-lg text-xs font-semibold text-center transition-all hover:brightness-110" style="background:${s.color}20;color:${s.color};text-decoration:none;cursor:pointer;">
-            Buka Soal
-          </a>`;
-      }
-      
-      cardHTML += `</div>`;
-      mapelGrid.innerHTML += cardHTML;
-    });
 
-    // Render rules
-    const rulesGrid = document.getElementById('rules-grid');
-    rules.forEach((r, i) => {
-      rulesGrid.innerHTML += `
-        <div class="stat-card rounded-2xl p-5 flex items-start gap-4" style="background:rgba(255,255,255,0.04);">
-          <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(56,189,248,0.1);">
-            <i data-lucide="${r.icon}" style="width:16px;height:16px;color:#38bdf8;"></i>
-          </div>
-          <span class="text-sm leading-relaxed" style="color:#cbd5e1;">${r.text}</span>
-        </div>`;
-    });
+            <div class="card">
+                <h3>CSS</h3>
+                <p>Digunakan untuk mengatur tampilan website.</p>
+            </div>
 
-    lucide.createIcons();
+            <div class="card">
+                <h3>Web Design</h3>
+                <p>Membuat website menjadi menarik dan nyaman digunakan.</p>
+            </div>
+        </section>
+    </main>
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('section-visible'); });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.observe-section').forEach(s => observer.observe(s));
+    <footer>
+        <p>&copy; 2026 Website Profil Saya</p>
+    </footer>
 
-    // Element SDK
-    const defaultConfig = {
-      hero_title: 'Asesmen Sumatif Akhir Jenjang',
-      hero_subtitle: '2025/2026',
-      school_name: 'SMK Guna Dharma Nusantara',
-      cta_text: 'Mulai Asesmen',
-      schedule_date: '2 - 13 Juni 2025',
-      schedule_time: '07.30 - 11.30 WIB',
-      background_color: '#0c1222',
-      surface_color: '#162032',
-      text_color: '#f1f5f9',
-      primary_action_color: '#eab308',
-      secondary_action_color: '#38bdf8',
-      font_family: 'Plus Jakarta Sans',
-      font_size: 16
-    };
-
-    window.elementSdk.init({
-      defaultConfig,
-      onConfigChange: async (config) => {
-        const c = { ...defaultConfig, ...config };
-
-        // Colors
-        document.getElementById('app-wrapper').style.backgroundColor = c.background_color;
-
-        document.querySelectorAll('.stat-card').forEach(el => {
-          el.style.background = c.surface_color + '22';
-        });
-
-        document.getElementById('hero-title').style.color = c.text_color;
-        document.querySelectorAll('[data-text]').forEach(el => el.style.color = c.text_color);
-
-        const ctaBtn = document.getElementById('cta-main');
-        ctaBtn.style.background = `linear-gradient(135deg, ${c.primary_action_color}, ${c.primary_action_color}dd)`;
-
-        // Text content
-        const titleParts = c.hero_title.split('\n');
-        document.getElementById('hero-title').innerHTML = c.hero_title.replace(/ /g, ' ').replace('Akhir', '<br>Akhir');
-        document.getElementById('badge-year').textContent = c.hero_subtitle;
-        document.getElementById('nav-school').textContent = c.school_name;
-        document.getElementById('footer-school').textContent = c.school_name;
-        ctaBtn.textContent = c.cta_text;
-
-        // Font
-        const fontStack = `${c.font_family}, 'Plus Jakarta Sans', sans-serif`;
-        document.body.style.fontFamily = fontStack;
-        const baseSize = c.font_size;
-        document.getElementById('hero-title').style.fontSize = '';
-        document.getElementById('hero-subtitle').style.fontSize = `${baseSize}px`;
-      },
-      mapToCapabilities: (config) => {
-        const c = { ...defaultConfig, ...config };
-        const mut = (key) => ({
-          get: () => c[key],
-          set: (v) => { c[key] = v; window.elementSdk.setConfig({ [key]: v }); }
-        });
-        return {
-          recolorables: [mut('background_color'), mut('surface_color'), mut('text_color'), mut('primary_action_color'), mut('secondary_action_color')],
-          borderables: [],
-          fontEditable: mut('font_family'),
-          fontSizeable: mut('font_size')
-        };
-      },
-      mapToEditPanelValues: (config) => {
-        const c = { ...defaultConfig, ...config };
-        return new Map([
-          ['hero_title', c.hero_title],
-          ['hero_subtitle', c.hero_subtitle],
-          ['school_name', c.school_name],
-          ['cta_text', c.cta_text],
-          ['schedule_date', c.schedule_date],
-          ['schedule_time', c.schedule_time],
-        ]);
-      }
-    });
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9eae8d73d719b58a',t:'MTc3NTk1ODMzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
